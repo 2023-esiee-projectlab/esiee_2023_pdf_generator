@@ -1,6 +1,6 @@
 {
   "name": "esiee/pdf_generator",
-  "description": "ESIEE - 2023 - PDF - Générator",
+  "description": "ESIEE - 2023 - Générateur de PDF",
   "type": "library",
   "license": "GPL-3.0-only",
   "version": "0.0.1",
