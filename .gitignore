@@ -3,3 +3,6 @@
 
 # Composer
 vendor/
+
+# Builds
+composer.lock
