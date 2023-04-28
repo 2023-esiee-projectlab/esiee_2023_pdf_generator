@@ -1,8 +1,9 @@
 {
   "name": "esiee/pdf_generator",
-  "description": "ESIEE - 2023 - PDF - Générator\nDecscription\nCe projet est un générateur de PDF créer au sein d'un projet pour l'ENS avec l'ESIEE.\nLicense\nCe projet est sous licence GNU GPL v2.0, voir le fichier [LICENSE](LICENSE) pour plus de détails.\nLa source du projet est disponible sur [GitHub](https://github.com/2023-esiee-projectlab/esiee_2023_pdf_generator).",
+  "description": "ESIEE - 2023 - PDF - Générator",
   "type": "library",
   "license": "GPL-2.0-only",
+  "version": "0.0.1",
   "authors": [
     {
       "name": "Loïc DUMAY",
@@ -20,13 +21,5 @@
       "name": "Zhihao CHEN",
       "email": "zhihao.chen@edu.esiee-it.fr"
     }
-  ],
-  "require": {
-    "mon-paquet-dependance/dependance": "^1.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "MonNomDePackage\\MonPackage\\": "src/"
-    }
-  }
+  ]
 }
