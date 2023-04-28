@@ -1,0 +1,32 @@
+{
+  "name": "esiee/pdf_generator",
+  "description": "Générateur de PDF",
+  "type": "library",
+  "license": "GPL-2.0-only",
+  "authors": [
+    {
+      "name": "Loïc DUMAY",
+      "email": "loic.dumay@edu.itescia.fr"
+    },
+    {
+      "name": "Emmanuel ROSE",
+      "email": "emmanuel.rose@edu.itescia.fr"
+    },
+    {
+      "name": "Maxence HENNEKEIN",
+      "email": "maxence.hennekein@edu.esiee-it.fr"
+    },
+    {
+      "name": "Zhihao CHEN",
+      "email": "zhihao.chen@edu.esiee-it.fr"
+    }
+  ],
+  "require": {
+    "mon-paquet-dependance/dependance": "^1.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "MonNomDePackage\\MonPackage\\": "src/"
+    }
+  }
+}
