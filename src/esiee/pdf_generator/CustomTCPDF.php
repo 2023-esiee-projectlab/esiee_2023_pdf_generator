@@ -1,5 +1,5 @@
 <?php
-    namespace esiee_2023_pdf_generator\esiee\pdf_generator;
+    namespace esiee_2023_pdf_generator\esiee\pdf_generator\CustomTCPDF;
 
     use TCPDF;
 
