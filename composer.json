@@ -1,14 +1,6 @@
 {
   "name": "esiee/pdf_generator",
-  "description": """
-      ESIEE - 2023 - PDF - Générator
-
-      Decscription
-      Ce projet est un générateur de PDF créer au sein d'un projet pour l'ENS avec l'ESIEE.
-
-      License
-      Ce projet est sous licence GNU GPL v2.0, voir le fichier [LICENSE](LICENSE) pour plus de détails.
-    """,
+  "description": "ESIEE - 2023 - PDF - Générator\nDecscription\nCe projet est un générateur de PDF créer au sein d'un projet pour l'ENS avec l'ESIEE.\nLicense\nCe projet est sous licence GNU GPL v2.0, voir le fichier [LICENSE](LICENSE) pour plus de détails.\nLa source du projet est disponible sur [GitHub](https://github.com/2023-esiee-projectlab/esiee_2023_pdf_generator).",
   "type": "library",
   "license": "GPL-2.0-only",
   "authors": [
