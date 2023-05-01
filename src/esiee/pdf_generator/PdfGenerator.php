@@ -48,6 +48,12 @@
         private $pdf_config_tcpdf_more_ready = false;
         private $pdf_parametres_contenu_forme_ready = false;
         private $pdf_parametres_contenu_fond_ready = false;
+        //-
+        private $pdf_pages_de_garde = null;
+        private $pdf_pages_de_separation = null;
+        private $pdf_pages_de_couverture = null;
+        private $pdf_pages_de_fin = null;
+        private $pdf_pages_contenu = null;
 
         /**
          * PdfGenerator constructor.
@@ -104,10 +110,10 @@
          * @param $pdfauto
          * @return void
          */
-        public function setPdfConfigTcpdfMore($diskcache, $pdfa, $pdfauto){
+        public function setPdfConfigTcpdfMore($diskcache, $pdfa, $pdfaauto){
             $this->pdf_config_tcpdf_diskcache = $diskcache;
             $this->pdf_config_tcpdf_pdfa = $pdfa;
-            $this->pdf_config_tcpdf_pdfauto = $pdfauto;
+            $this->pdf_config_tcpdf_pdfaauto = $pdfaauto;
             $this->pdf_config_tcpdf_more_ready = true;
         }
 
@@ -133,6 +139,30 @@
             $this->pdf_parametres_contenu_fond_header = $pdf_parametres_contenu_fond_header;
             $this->pdf_parametres_contenu_fond_bottom = $pdf_parametres_contenu_fond_bottom;
             $this->pdf_parametres_contenu_fond_ready = true;
+        }
+
+        /**
+         * Cette méthode permet de définir les pages de garde, de séparation, de couverture et de fin du PDF.
+         * @param $pages_de_garde
+         * @param $pages_de_separation
+         * @param $pages_de_couverture
+         * @param $pages_de_fin
+         * @return void
+         */
+        public function setPagesCouvertures($pages_de_garde, $pages_de_separation, $pages_de_couverture, $pages_de_fin){
+            $this->pdf_pages_de_garde = $pages_de_garde;
+            $this->pdf_pages_de_separation = $pages_de_separation;
+            $this->pdf_pages_de_couverture = $pages_de_couverture;
+            $this->pdf_pages_de_fin = $pages_de_fin;
+        }
+
+        /**
+         * Cette méthode permet de définir le contenu du PDF.
+         * @param $pages
+         * @return void
+         */
+        public function setContenu($pages){
+            $this->pdf_pages_contenu = $pages;
         }
 
         /**
