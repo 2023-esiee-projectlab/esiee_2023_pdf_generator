@@ -227,7 +227,7 @@
              */
             // Page de garde
             $pdf->AddPage();
-            
+
             $pdf->Header(
                 $this->pdf_titre,
                 $this->pdf_config_tcpdf_images[0],
@@ -238,8 +238,7 @@
             $pdf->Footer(
                 $this->pdf_parametres_contenu_forme_police
             );
-
-            $pdf->Ln(2); // Ajout de deux lignes vides
+            $pdf->Ln(4); // Ajout de deux lignes vides
 
             $pdf->Cell(0, 10, 'Titre du PDF : '.$this->pdf_titre.'', 0, 1);
             $pdf->Cell(0, 10, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
