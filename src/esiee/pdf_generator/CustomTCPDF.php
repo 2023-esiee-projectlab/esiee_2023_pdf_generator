@@ -34,7 +34,9 @@
             // Set font
             $this->SetFont($police[0], 'B', $police[2]);
             // Title
-            $this->Cell(0, 15, $title, 0, false, 'C', 0, '', 0, false, 'M', 'M');
+            //$this->Cell(0, 15, '<< TCPDF Example 003 >>', 0, false, 'C', 0, '', 0, false, 'M', 'M');
+            $this->Cell(0, 10, $title, 0, 1, 'C');
+            //$this->Cell(0, 15, $title, 0, false, 'C', 0, '', 0, false, 'M', 'M');
         }
 
         // Footer
