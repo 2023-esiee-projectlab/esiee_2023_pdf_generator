@@ -24,6 +24,9 @@
         private $pdf_titre = null;
         private $pdf_sujet = null;
         //-
+        private $pdf_config_saut_de_ligne = 0;
+        private $pdf_config_saut_des_interlignes = 0;
+        //-
         private $pdf_config_tcpdf_orientation = null;
         private $pdf_config_tcpdf_unit = null;
         private $pdf_config_tcpdf_format = null;
@@ -43,6 +46,7 @@
         private $pdf_parametres_contenu_fond_bottom = null;
         //-
         private $pdf_informations_ready = false;
+        private $pdf_config_ready = false;
         private $pdf_config_tcpdf_ready = false;
         private $pdf_config_tcpdf_border_and_images_ready = false;
         private $pdf_config_tcpdf_more_ready = false;
@@ -78,6 +82,18 @@
 
         /**
          * Cette méthode permet de définir les configurations du PDF.
+         * @param $pdf_config_saut_de_ligne
+         * @param $pdf_config_saut_des_interlignes
+         * @return void
+         */
+        public function setPdfConfig($pdf_config_saut_de_ligne, $pdf_config_saut_des_interlignes){
+            $this->pdf_config_saut_de_ligne = $pdf_config_saut_de_ligne;
+            $this->pdf_config_saut_des_interlignes = $pdf_config_saut_des_interlignes;
+            $this->pdf_config_ready = true;
+        }
+
+        /**
+         * Cette méthode permet de définir les configurations du PDF avec TCPDF.
          * @param $pdf_config_tcpdf_orientation
          * @param $pdf_config_tcpdf_format
          * @param $pdf_config_tcpdf_encoding
@@ -227,23 +243,27 @@
              */
             // Page de garde
             $pdf->AddPage();
-
+            //-
             $pdf->Header(
-                $this->pdf_titre,
-                $this->pdf_config_tcpdf_images[0],
-                $this->pdf_config_tcpdf_images[1],
-                'SVG',
-                $this->pdf_parametres_contenu_forme_police
+                $this->pdf_config_saut_de_ligne, // Saut de ligne
+                $this->pdf_config_saut_des_interlignes, // Interlignes
+                $this->pdf_titre, // Titre
+                $this->pdf_config_tcpdf_images[0], // Image
+                $this->pdf_config_tcpdf_images[1], // Largeur de l'image
+                'SVG', // Type de l'image
+                $this->pdf_parametres_contenu_forme_police // Police
             );
             $pdf->Footer(
-                $this->pdf_parametres_contenu_forme_police
+                $this->pdf_config_saut_de_ligne, // Saut de ligne
+                $this->pdf_config_saut_des_interlignes, // Interlignes
+                $this->pdf_parametres_contenu_forme_police // Police
             );
-            $pdf->Ln(4); // Ajout de deux lignes vides
-
-            $pdf->Cell(0, 10, 'Titre du PDF : '.$this->pdf_titre.'', 0, 1);
-            $pdf->Cell(0, 10, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
-            $pdf->Cell(0, 10, 'Auteur du PDF : '.$this->pdf_auteur.'', 0, 1);
-            $pdf->Cell(0, 10, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
+            $pdf->Ln($this->pdf_config_saut_des_interlignes); // Ajout de deux lignes vides
+            //-
+            $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre du PDF : '.$this->pdf_titre.'', 0, 1);
+            $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
+            $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Auteur du PDF : '.$this->pdf_auteur.'', 0, 1);
+            $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
 
             /**
              * Configurationd des pages
@@ -251,9 +271,25 @@
             foreach ($this->pdf_pages_contenu as $page){
                 $pdf->AddPage();
                 //-
-                $pdf->Cell(0, 10, 'Titre : '.$page['title'].'', 0, 1);
-                $pdf->Cell(0, 10, 'Sous-titre : '.$page['sub_title'].'', 0, 1);
-                $pdf->Cell(0, 10, 'Text : '.$page['text'].'', 0, 1);
+                $pdf->Header(
+                    $this->pdf_config_saut_de_ligne, // Saut de ligne
+                    $this->pdf_config_saut_des_interlignes, // Interlignes
+                    $this->pdf_titre, // Titre
+                    $this->pdf_config_tcpdf_images[0], // Image
+                    $this->pdf_config_tcpdf_images[1], // Largeur de l'image
+                    'SVG', // Type de l'image
+                    $this->pdf_parametres_contenu_forme_police // Police
+                );
+                $pdf->Footer(
+                    $this->pdf_config_saut_de_ligne, // Saut de ligne
+                    $this->pdf_config_saut_des_interlignes, // Interlignes
+                    $this->pdf_parametres_contenu_forme_police // Police
+                );
+                $pdf->Ln($this->pdf_config_saut_des_interlignes); // Ajout de deux lignes vides
+                //-
+                $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre : '.$page['title'].'', 0, 1);
+                $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sous-titre : '.$page['sub_title'].'', 0, 1);
+                $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Text : '.$page['text'].'', 0, 1);
             }
 
             // ---[ Configuration du Haut et du Bas de page ]---
