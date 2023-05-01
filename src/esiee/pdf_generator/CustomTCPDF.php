@@ -2,7 +2,7 @@
     /**
      * Espace de travail : src\esiee\pdf_generator
      */
-    namespace esiee\pdf_generator;
+    namespace pdf_generator;
 
     /**
      * Importations des classes nécessaires.
