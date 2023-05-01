@@ -30,7 +30,8 @@
         {
             // Logo
             $image_file = $image_link;
-            $this->Image($image_file, 10, 10, $image_with, '', $image_type, '', 'T', false, 300, '', false, false, 0, false, false, false);
+            $this->Image($image_file, 10, 10, $image_with, '', $image_type, '', 'T');
+            //$this->Image($image_file, 10, 10, $image_with, '', $image_type, '', 'T', false, 300, '', false, false, 0, false, false, false);
             // Set font
             $this->SetFont($police[0], 'B', $police[2]);
             // Title
