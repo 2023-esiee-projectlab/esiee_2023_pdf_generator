@@ -42,12 +42,4 @@
             // Page number
             $this->Cell(0, 10, 'Page ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
         }
-
-        public function SetPdfInformations($pdf_createur, $pdf_auteur, $pdf_titre, $pdf_sujet)
-        {
-            $this->pdf_createur = $pdf_createur;
-            $this->pdf_auteur = $pdf_auteur;
-            $this->pdf_titre = $pdf_titre;
-            $this->pdf_sujet = $pdf_sujet;
-        }
     }
