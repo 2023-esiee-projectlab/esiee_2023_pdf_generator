@@ -32,6 +32,10 @@
         private $pdf_config_tcpdf_border = null;
         private $pdf_config_tcpdf_images = null;
         //-
+        private $pdf_config_tcpdf_diskcache = null;
+        private $pdf_config_tcpdf_pdfa = null;
+        private $pdf_config_tcpdf_pdfaauto = null;
+        //-
         private $pdf_parametres_contenu_forme_police = null;
         private $pdf_parametres_contenu_forme_marges = null;
         //-
@@ -41,6 +45,7 @@
         private $pdf_informations_ready = false;
         private $pdf_config_tcpdf_ready = false;
         private $pdf_config_tcpdf_border_and_images_ready = false;
+        private $pdf_config_tcpdf_more_ready = false;
         private $pdf_parametres_contenu_forme_ready = false;
         private $pdf_parametres_contenu_fond_ready = false;
 
@@ -90,6 +95,20 @@
             $this->pdf_config_tcpdf_border = $pdf_config_tcpdf_border;
             $this->pdf_config_tcpdf_images = $pdf_config_tcpdf_images;
             $this->pdf_config_tcpdf_border_and_images_ready = true;
+        }
+
+        /**
+         * Cette méthode permet de définir les configurations supplémentaires du PDF.
+         * @param $diskcache
+         * @param $pdfa
+         * @param $pdfauto
+         * @return void
+         */
+        public function setPdfConfigTcpdfMore($diskcache, $pdfa, $pdfauto){
+            $this->pdf_config_tcpdf_diskcache = $diskcache;
+            $this->pdf_config_tcpdf_pdfa = $pdfa;
+            $this->pdf_config_tcpdf_pdfauto = $pdfauto;
+            $this->pdf_config_tcpdf_more_ready = true;
         }
 
         /**
