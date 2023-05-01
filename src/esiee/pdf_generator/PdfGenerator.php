@@ -226,7 +226,18 @@
                 $this->pdf_parametres_contenu_forme_marges[3]
             );
 
-            $pdf->Cell(0, 10, $datas['pdf_contenu']['texte'], 0, 1);
+            $hauteur = 10;
+            $line = 1;
+            foreach ($this->pdf_pages_contenu as $page){
+                $pdf->Cell(0, $hauteur, 'Titre : '.$page['title'], 0, $line);
+                $line++; $hauteur += 10;
+                //-
+                $pdf->Cell(0, $hauteur, 'Sous-titre : '.$page['sub_title'], 0, $line);
+                $line++; $hauteur += 10;
+                //-
+                $pdf->Cell(0, $hauteur, 'Text : '.$page['texte'], 0, $line);
+                $line++; $hauteur += 10;
+            }
 
             // ---[ Configuration du Haut et du Bas de page ]---
             /**
