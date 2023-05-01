@@ -224,6 +224,19 @@
                 $this->pdf_parametres_contenu_forme_marges[3]
             );
 
+            /**
+             * Création des pages de garde
+             */
+            // Page de garde
+            $pdf->AddPage();
+            $pdf->Cell(0, 10, 'Titre du PDF : '.$this->pdf_titre.'', 0, 1);
+            $pdf->Cell(0, 10, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
+            $pdf->Cell(0, 10, 'Auteur du PDF : '.$this->pdf_auteur.'', 0, 1);
+            $pdf->Cell(0, 10, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
+
+            /**
+             * Configurationd des pages
+             */
             foreach ($this->pdf_pages_contenu as $page){
                 $pdf->AddPage();
                 //-
