@@ -167,10 +167,9 @@
 
         /**
          * Cette méthode permet de générer le PDF.
-         * @param $datas
          * @return void
          */
-        public function generate($datas){
+        public function generatePDF(){
             // Initialisation du PDF avec TCPDF
             $pdf = new CustomTCPDF(
                 $this->pdf_config_tcpdf_orientation, // Orientation
