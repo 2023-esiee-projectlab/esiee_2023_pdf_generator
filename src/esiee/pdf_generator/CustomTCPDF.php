@@ -15,10 +15,6 @@
      */
     class CustomTCPDF extends TCPDF
     {
-        private $pdf_createur;
-        private $pdf_auteur;
-        private $pdf_titre;
-        private $pdf_sujet;
 
         // Header
         public function Header()
