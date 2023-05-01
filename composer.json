@@ -23,6 +23,12 @@
     }
   ],
   "require": {
+    "php": ">=7.0",
     "tecnickcom/tcpdf": "^6.6"
+  },
+  "autoload": {
+    "psr-0": {
+      "esiee\\pdf_generator\\": "src/"
+    }
   }
 }

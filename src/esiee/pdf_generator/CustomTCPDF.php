@@ -1,8 +1,18 @@
 <?php
-    //namespace esiee_2023_pdf_generator\esiee\pdf_generator;
+    /**
+     * Espace de travail : src\esiee\pdf_generator
+     */
+    namespace esiee\pdf_generator;
 
+    /**
+     * Importations des classes nécessaires.
+     */
     use TCPDF;
 
+    /**
+     * Classe : PdfGenerator.php
+     * <br/>Cette classe permet de générer un fichier PDF.
+     */
     class CustomTCPDF extends TCPDF
     {
         private $pdf_createur;
