@@ -180,9 +180,6 @@
                 ($this->pdf_config_tcpdf_border_and_images_ready==true) ? true : false // Permet de ne pas afficher les images
             );
 
-            $pdf->Header();
-            $pdf->Footer();
-
             // ---[ Configuration des informations du PDF ]---
             $pdf->SetCreator($this->pdf_createur);
             $pdf->SetAuthor($this->pdf_auteur);
@@ -230,10 +227,18 @@
              */
             // Page de garde
             $pdf->AddPage();
+            $pdf->Header(
+                $this->pdf_titre,
+                $this->pdf_config_tcpdf_images[0],
+                $this->pdf_config_tcpdf_images[1],
+                'SVG',
+                $this->pdf_parametres_contenu_forme_police
+            );
             $pdf->Cell(0, 10, 'Titre du PDF : '.$this->pdf_titre.'', 0, 1);
             $pdf->Cell(0, 10, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
             $pdf->Cell(0, 10, 'Auteur du PDF : '.$this->pdf_auteur.'', 0, 1);
             $pdf->Cell(0, 10, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
+            $pdf->Footer();
 
             /**
              * Configurationd des pages
