@@ -243,19 +243,19 @@
              * Configuration du Haut de page
              */
             $pdf->SetHeaderData(
-                $this->pdf_parametres_contenu_fond_header['logo'], // Logo
-                $this->pdf_parametres_contenu_fond_header['logo_width'], // Largeur du logo
-                $this->pdf_parametres_contenu_fond_header['titre'], // Titre
-                $this->pdf_parametres_contenu_fond_header['sous_titre'] // Sous-titre
+                $this->pdf_parametres_contenu_fond_header[0], // Logo
+                $this->pdf_parametres_contenu_fond_header[1], // Largeur du logo
+                $this->pdf_parametres_contenu_fond_header[2], // Titre
+                $this->pdf_parametres_contenu_fond_header[3] // Sous-titre
             );
             /**
              * Configuration du Bas de page
              */
             $pdf->setFooterData(
-                $this->pdf_parametres_contenu_fond_bottom['logo'], // Logo
-                $this->pdf_parametres_contenu_fond_bottom['logo_width'], // Largeur du logo
-                $this->pdf_parametres_contenu_fond_bottom['titre'], // Titre
-                $this->pdf_parametres_contenu_fond_bottom['sous_titre'] // Sous-titre
+                $this->pdf_parametres_contenu_fond_bottom[0], // Logo
+                $this->pdf_parametres_contenu_fond_bottom[1], // Largeur du logo
+                $this->pdf_parametres_contenu_fond_bottom[2], // Titre
+                $this->pdf_parametres_contenu_fond_bottom[3] // Sous-titre
             );
 
             // ---[ Préparation du titre du PDF ]---
