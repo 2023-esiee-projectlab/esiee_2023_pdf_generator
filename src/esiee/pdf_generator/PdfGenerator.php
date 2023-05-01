@@ -248,8 +248,8 @@
                 $this->pdf_config_saut_de_ligne, // Saut de ligne
                 $this->pdf_config_saut_des_interlignes, // Interlignes
                 $this->pdf_titre, // Titre
-                $this->pdf_config_tcpdf_images[0], // Image
-                $this->pdf_config_tcpdf_images[1], // Largeur de l'image
+                $this->pdf_parametres_contenu_fond_header[0], // Image
+                $this->pdf_parametres_contenu_fond_header[1], // Largeur de l'image
                 'SVG', // Type de l'image
                 $this->pdf_parametres_contenu_forme_police // Police
             );
@@ -275,8 +275,8 @@
                     $this->pdf_config_saut_de_ligne, // Saut de ligne
                     $this->pdf_config_saut_des_interlignes, // Interlignes
                     $this->pdf_titre, // Titre
-                    $this->pdf_config_tcpdf_images[0], // Image
-                    $this->pdf_config_tcpdf_images[1], // Largeur de l'image
+                    $this->pdf_parametres_contenu_fond_header[0], // Image
+                    $this->pdf_parametres_contenu_fond_header[1], // Largeur de l'image
                     'SVG', // Type de l'image
                     $this->pdf_parametres_contenu_forme_police // Police
                 );
