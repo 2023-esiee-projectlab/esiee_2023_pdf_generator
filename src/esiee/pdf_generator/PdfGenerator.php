@@ -182,12 +182,34 @@
         }
 
         /**
+         * Cette méthode permet d'insérer le Header et le Footer du PDF.
+         * @return void
+         */
+        public function insertHeaderAndFooter(){
+            $this->pdf->Header(
+                $this->pdf_config_saut_de_ligne, // Saut de ligne
+                $this->pdf_config_saut_des_interlignes, // Interlignes
+                $this->pdf_titre, // Titre
+                $this->pdf_parametres_contenu_fond_header[0], // Image
+                $this->pdf_parametres_contenu_fond_header[1], // Largeur de l'image
+                'SVG', // Type de l'image
+                $this->pdf_parametres_contenu_forme_police // Police
+            );
+            $this->pdf->Footer(
+                $this->pdf_config_saut_de_ligne, // Saut de ligne
+                $this->pdf_config_saut_des_interlignes, // Interlignes
+                $this->pdf_parametres_contenu_forme_police // Police
+            );
+            $this->pdf->Ln($this->pdf_config_saut_des_interlignes); // Ajout de deux lignes vides
+        }
+
+        /**
          * Cette méthode permet de générer le PDF.
          * @return void
          */
         public function generatePDF(){
             // Initialisation du PDF avec TCPDF
-            $pdf = new CustomTCPDF(
+            $this->pdf = new CustomTCPDF(
                 $this->pdf_config_tcpdf_orientation, // Orientation
                 $this->pdf_config_tcpdf_unit, // Unité de mesure
                 $this->pdf_config_tcpdf_format, // Format
@@ -197,27 +219,27 @@
             );
 
             // ---[ Configuration des informations du PDF ]---
-            $pdf->SetCreator($this->pdf_createur);
-            $pdf->SetAuthor($this->pdf_auteur);
-            $pdf->SetTitle($this->pdf_titre);
-            $pdf->SetSubject($this->pdf_sujet);
+            $this->pdf->SetCreator($this->pdf_createur);
+            $this->pdf->SetAuthor($this->pdf_auteur);
+            $this->pdf->SetTitle($this->pdf_titre);
+            $this->pdf->SetSubject($this->pdf_sujet);
 
-            $pdf->setPrintHeader(false);
-            $pdf->setPrintFooter(false);
+            $this->pdf->setPrintHeader(false);
+            $this->pdf->setPrintFooter(false);
 
             // ---[ Configuration des paramètres du PDF ]---
             /**
              * Configuration de la police
              * boolean $subsetting - Sous-ensemble
              */
-            $pdf->setFontSubsetting(true);
+            $this->pdf->setFontSubsetting(true);
             /**
              * Configuration de la police
              * string $family - Police
              * string $style - Style
              * string $size - Taille
              */
-            $pdf->SetFont(
+            $this->pdf->SetFont(
                 $this->pdf_parametres_contenu_forme_police[0],
                 $this->pdf_parametres_contenu_forme_police[1],
                 $this->pdf_parametres_contenu_forme_police[2]
@@ -231,7 +253,7 @@
              * int $bottom - Bas
              * boolean $setAutoPageBreak
              */
-            $pdf->SetMargins(
+            $this->pdf->SetMargins(
                 $this->pdf_parametres_contenu_forme_marges[0],
                 $this->pdf_parametres_contenu_forme_marges[1],
                 $this->pdf_parametres_contenu_forme_marges[2],
@@ -242,61 +264,33 @@
              * Création des pages de garde
              */
             // Page de garde
-            $pdf->AddPage();
+            $this->pdf->AddPage();
             //-
-            $pdf->Header(
-                $this->pdf_config_saut_de_ligne, // Saut de ligne
-                $this->pdf_config_saut_des_interlignes, // Interlignes
-                $this->pdf_titre, // Titre
-                $this->pdf_parametres_contenu_fond_header[0], // Image
-                $this->pdf_parametres_contenu_fond_header[1], // Largeur de l'image
-                'SVG', // Type de l'image
-                $this->pdf_parametres_contenu_forme_police // Police
-            );
-            $pdf->Footer(
-                $this->pdf_config_saut_de_ligne, // Saut de ligne
-                $this->pdf_config_saut_des_interlignes, // Interlignes
-                $this->pdf_parametres_contenu_forme_police // Police
-            );
-            $pdf->Ln($this->pdf_config_saut_des_interlignes); // Ajout de deux lignes vides
+            $this->insertHeaderAndFooter();
             //-
-            $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre du PDF : '.$this->pdf_titre.'', 0, 1);
-            $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
-            $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Auteur du PDF : '.$this->pdf_auteur.'', 0, 1);
-            $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
+            $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre du PDF : '.$this->pdf_titre.'', 0, 1);
+            $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
+            $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Auteur du PDF : '.$this->pdf_auteur.'', 0, 1);
+            $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
 
             /**
              * Configurationd des pages
              */
             foreach ($this->pdf_pages_contenu as $page){
-                $pdf->AddPage();
+                $this->pdf->AddPage();
                 //-
-                $pdf->Header(
-                    $this->pdf_config_saut_de_ligne, // Saut de ligne
-                    $this->pdf_config_saut_des_interlignes, // Interlignes
-                    $this->pdf_titre, // Titre
-                    $this->pdf_parametres_contenu_fond_header[0], // Image
-                    $this->pdf_parametres_contenu_fond_header[1], // Largeur de l'image
-                    'SVG', // Type de l'image
-                    $this->pdf_parametres_contenu_forme_police // Police
-                );
-                $pdf->Footer(
-                    $this->pdf_config_saut_de_ligne, // Saut de ligne
-                    $this->pdf_config_saut_des_interlignes, // Interlignes
-                    $this->pdf_parametres_contenu_forme_police // Police
-                );
-                $pdf->Ln($this->pdf_config_saut_des_interlignes); // Ajout de deux lignes vides
+                $this->insertHeaderAndFooter();
                 //-
-                $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre : '.$page['title'].'', 0, 1);
-                $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sous-titre : '.$page['sub_title'].'', 0, 1);
-                $pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Text : '.$page['text'].'', 0, 1);
+                $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre : '.$page['title'].'', 0, 1);
+                $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sous-titre : '.$page['sub_title'].'', 0, 1);
+                $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Text : '.$page['text'].'', 0, 1);
             }
 
             // ---[ Configuration du Haut et du Bas de page ]---
             /**
              * Configuration du Haut de page
              */
-            $pdf->SetHeaderData(
+            $this->pdf->SetHeaderData(
                 $this->pdf_parametres_contenu_fond_header[0], // Logo
                 $this->pdf_parametres_contenu_fond_header[1], // Largeur du logo
                 $this->pdf_parametres_contenu_fond_header[2], // Titre
@@ -305,7 +299,7 @@
             /**
              * Configuration du Bas de page
              */
-            $pdf->setFooterData(
+            $this->pdf->setFooterData(
                 $this->pdf_parametres_contenu_fond_bottom[0], // Logo
                 $this->pdf_parametres_contenu_fond_bottom[1], // Largeur du logo
                 $this->pdf_parametres_contenu_fond_bottom[2], // Titre
@@ -317,7 +311,7 @@
             $titrePDF = $cleanString->CleaningStringForFileTitle($this->pdf_titre);
 
             // ---[ Génération du PDF ]---
-            $pdf->Output($titrePDF.'.pdf', 'D');
+            $this->pdf->Output($titrePDF.'.pdf', 'D');
         }
 
         /**
