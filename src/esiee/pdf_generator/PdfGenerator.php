@@ -238,7 +238,9 @@
             $pdf->Cell(0, 10, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
             $pdf->Cell(0, 10, 'Auteur du PDF : '.$this->pdf_auteur.'', 0, 1);
             $pdf->Cell(0, 10, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
-            $pdf->Footer();
+            $pdf->Footer(
+                $this->pdf_parametres_contenu_forme_police
+            );
 
             /**
              * Configurationd des pages
