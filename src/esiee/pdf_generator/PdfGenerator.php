@@ -234,13 +234,13 @@
                 'SVG',
                 $this->pdf_parametres_contenu_forme_police
             );
+            $pdf->Footer(
+                $this->pdf_parametres_contenu_forme_police
+            );
             $pdf->Cell(0, 10, 'Titre du PDF : '.$this->pdf_titre.'', 0, 1);
             $pdf->Cell(0, 10, 'Sujet du PDF : '.$this->pdf_sujet.'', 0, 1);
             $pdf->Cell(0, 10, 'Auteur du PDF : '.$this->pdf_auteur.'', 0, 1);
             $pdf->Cell(0, 10, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
-            $pdf->Footer(
-                $this->pdf_parametres_contenu_forme_police
-            );
 
             /**
              * Configurationd des pages
