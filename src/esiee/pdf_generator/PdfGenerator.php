@@ -181,6 +181,7 @@
             );
 
             $pdf->Header();
+            $pdf->Footer();
 
             // ---[ Configuration des informations du PDF ]---
             $pdf->SetCreator($this->pdf_createur);
