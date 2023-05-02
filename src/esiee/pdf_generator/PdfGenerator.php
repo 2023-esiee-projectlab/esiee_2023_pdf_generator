@@ -186,7 +186,7 @@
          * @return void
          */
         public function insertHeaderAndFooter(){
-            $this->pdf->Header(
+            $this->pdf->setPdfParams(
                 $this->pdf_config_saut_de_ligne, // Saut de ligne
                 $this->pdf_config_saut_des_interlignes, // Interlignes
                 $this->pdf_titre, // Titre
@@ -195,11 +195,8 @@
                 'SVG', // Type de l'image
                 $this->pdf_parametres_contenu_forme_police // Police
             );
-            $this->pdf->Footer(
-                $this->pdf_config_saut_de_ligne, // Saut de ligne
-                $this->pdf_config_saut_des_interlignes, // Interlignes
-                $this->pdf_parametres_contenu_forme_police // Police
-            );
+            $this->pdf->Header();
+            $this->pdf->Footer();
             $this->pdf->Ln($this->pdf_config_saut_des_interlignes); // Ajout de deux lignes vides
         }
 
