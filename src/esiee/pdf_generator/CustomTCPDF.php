@@ -93,6 +93,10 @@
                 $this->Cell(0, $this->saut_de_ligne, 'Page ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C');
                 //$this->Cell(0, 10, 'Page ' . $this->getAliasNumPage() . '/' . $this->getAliasNbPages(), 0, false, 'C', 0, '', 0, false, 'T', 'M');
             }
+            else
+            {
+                throw new \Exception("Les paramètres nécessaires à la génération du Footer n'ont pas été configurés.");
+            }
         }
 
         /**
