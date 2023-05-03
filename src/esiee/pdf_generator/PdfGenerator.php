@@ -282,7 +282,7 @@
                     // Ajout d'un text de façcon classqiues : lignes par lignes
                     $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre : '.$page['title'].'', 0, 1);
                     $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sous-titre : '.$page['sub_title'].'', 0, 1);
-                    //$this->pdf->MultiCell(0,  $this->pdf_config_saut_de_ligne, 'Text : '.$page['text'].'');
+                    $this->pdf->MultiCell(0,  $this->pdf_config_saut_de_ligne, 'Text : '.$page['text'].'');
                     //$this->pdf->MultiCell(0,  $this->pdf_config_saut_de_ligne, 'Text : '.$page['text'].'', 0, 'J', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
                 }
                 else
