@@ -271,14 +271,26 @@
             $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Créateur du PDF : '.$this->pdf_createur.'', 0, 1);
 
             /**
-             * Configurationd des pages
+             * Configuration des pages
              */
             foreach ($this->pdf_pages_contenu as $page){
                 $this->pdf->AddPage();
                 //-
                 $this->insertHeaderAndFooter();
                 //-
-                if($page['title']=='Demo'){
+                if($page['title']=='Demo - Line to line'){
+                    // Ajout d'un text de façcon classqiues : lignes par lignes
+                    $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre : '.$page['title'].'', 0, 1);
+                    $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sous-titre : '.$page['sub_title'].'', 0, 1);
+                    $text = explode("\n", $page['text']);
+                    $x=0;
+                    foreach ($text as $line){
+                        $this->pdf->Cell(0,  $this->pdf_config_saut_de_ligne, 'Text : '.$page['text'].'', 0, $x);
+                        //$this->pdf->Cell(0,  $this->pdf_config_saut_de_ligne, 'Text : '.$page['text'].'', 0, 'J', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+                        $x++;
+                    }
+                }
+                else if($page['title']=='Demo - Multi line'){
                     // Ajout d'un text de façcon classqiues : lignes par lignes
                     $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Titre : '.$page['title'].'', 0, 1);
                     $this->pdf->Cell(0, $this->pdf_config_saut_de_ligne, 'Sous-titre : '.$page['sub_title'].'', 0, 1);
