@@ -1,7 +1,9 @@
 {
-  "name": "esiee/pdf_generator",
+  "name": "esiee/pdf_generator_composer_package",
   "description": "ESIEE - 2023 - Générateur de PDF",
   "type": "library",
+  "keywords": ["composer", "esiee", "2023", "pdf", "generator"],
+  "homepage": "https://packagist.org/packages/esiee/esiee_pdf_generator",
   "license": "GPL-3.0-only",
   "version": "0.0.2",
   "authors": [
