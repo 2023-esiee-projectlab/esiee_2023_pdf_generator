@@ -2,7 +2,7 @@
 
 ## Decscription
 
-Ce projet est un générateur de PDF créer au sein d'un projet pour l'ENS avec l'ESIEE.
+Ce projet est un générateur de PDF créer au sein d'un projet pour l'ENS avec l'ESIEE-IT.
 
 Il permet d'obtenir une librairie de code permettant de générer des PDF à partir de textes ou de page HTML.
 
