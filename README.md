@@ -14,11 +14,11 @@ Ce projet est sous licence GNU GPL v3.0, voir le fichier [LICENSE](LICENSE) pour
 
 ### Source GitHub
 
-La source du projet est disponible sur [GitHub - ESIEE - PDF Generator](https://github.com/2023-esiee-projectlab/pdf_generator_composer_package).
+La source du projet est disponible sur [GitHub - ESIEE-IT - PDF Generator](https://github.com/2023-esiee-projectlab/pdf_generator_composer_package).
 
 ### Source Packagist
 
-La source du projet est disponible sur [Packagist - ESIEE - PDF Generator](https://packagist.org/packages/esiee/pdf_generator_composer_package).
+La source du projet est disponible sur [Packagist - ESIEE-IT - PDF Generator](https://packagist.org/packages/esiee/pdf_generator_composer_package).
 
 ## Les Dépendances
 
